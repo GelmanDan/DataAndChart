@@ -5,11 +5,12 @@ import Charts from './Charts'
 
 
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, onTodoClick, deleteTodo }) => (
     <div>
         <ul>
             {todos.map(todo =>
                 <Todo
+                    deleteTodo={deleteTodo}
                     key={todo.id}
                     {...todo}
                     onClick={() => onTodoClick(todo.id)}
@@ -22,12 +23,12 @@ const TodoList = ({ todos, onTodoClick }) => (
 
 TodoList.propTypes = {
     todos: PropTypes.arrayOf(PropTypes.shape({
-       // date: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
         completed: PropTypes.bool.isRequired,
         text: PropTypes.number.isRequired
     }).isRequired).isRequired,
-    onTodoClick: PropTypes.func.isRequired
+    onTodoClick: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired
 }
 
 export default TodoList
