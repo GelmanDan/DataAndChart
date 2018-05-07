@@ -1,19 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addValue } from '../actions'
 
-let AddTodo = ({ dispatch }) => {
+let AddValues = ({ dispatch }) => {
     let input;
 
     return (
-        <div className="addToDo">
+        <div className="addValue">
             <h2><b>Data</b></h2>
             <form onSubmit={e => {
                 e.preventDefault();
                 if (!input.value.trim()) {
                     return
                 }
-                dispatch(addTodo(parseInt(input.value)));
+                dispatch(addValue(parseInt(input.value)));
                 input.value = ''
             }}>
                 <input ref={node => {
@@ -24,6 +24,6 @@ let AddTodo = ({ dispatch }) => {
         </div>
     )
 };
-AddTodo = connect()(AddTodo);
+AddValues = connect()(AddValues);
 
-export default AddTodo
+export default AddValues

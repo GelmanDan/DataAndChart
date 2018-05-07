@@ -1,17 +1,17 @@
-let nextTodoId = 0;
-export const addTodo = (text) => {
+let nextValueId = 0;
+export const addValue = (text) => {
     let date = new Date();
     return {
         date:  (date),
-        type: 'ADD_TODO',
-        id: nextTodoId++,
+        type: 'ADD_VALUE',
+        id: nextValueId++,
         text
     }
 }
 
-export const deleteTodo = (id) => {
+export const deleteValue = (id) => {
     return {
-        type: 'DELETE_TODO',
+        type: 'DELETE_VALUE',
         id
     }
 }

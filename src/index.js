@@ -6,7 +6,7 @@ import todoApp from './reducers'
 import App from './components/App'
 import './App.css';
 
-let store = createStore(todoApp)
+let store = createStore(todoApp);
 
 render(
     <Provider store={store}>

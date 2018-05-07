@@ -89,9 +89,9 @@ html{
     grid-column: 1/1;
 }
 
-/*ToDo */
+/*Value */
 
-.todo {
+.value {
     display: grid;
 
     grid-template-columns: auto auto auto;
@@ -100,23 +100,23 @@ html{
     padding: 2px 2px 2px 2px;
 }
 
-.todo-time {
+.value-time {
     grid-column: 1/1;
     vertical-align: middle;
     padding-left: 5px;
     padding-top: 3%;
 }
-.todo-text{
+.value-text{
     grid-column: 2/2;
     vertical-align: middle;
     padding-top: 3%;
 }
-.todo-btn {
+.value-btn {
     grid-column: 6/6;
 }
 
 /* AddNumber */
-.addToDo input{
+.addValue input{
     width:100%;
 }
 

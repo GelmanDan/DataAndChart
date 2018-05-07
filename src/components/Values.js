@@ -10,21 +10,20 @@ function timeTransform(date) {
     return time
 }
 
-const Todo = ({ onClick, completed, text, id, deleteTodo, date }) => (
-    <div className="todo">
+const Values = ({ completed, text, id, deleteValue, date }) => (
+    <div className="value">
         <div
-            className="todo-time"
-            onClick={onClick}
+            className="value-time"
             style={{textDecoration: completed ? 'line-through' : 'none'}}
         >
 
             {timeTransform(date)}
         </div>
-        <div className="todo-text">
+        <div className="value-text">
             <b>{text}</b>
         </div>
-        <button className="todo-btn"
-                onClick={() => {deleteTodo(id)}}
+        <button className="value-btn"
+                onClick={() => {deleteValue(id)}}
         >
             Remove
         </button>
@@ -32,12 +31,11 @@ const Todo = ({ onClick, completed, text, id, deleteTodo, date }) => (
 
 );
 
-Todo.propTypes = {
-    onClick: PropTypes.func.isRequired,
+Values.propTypes = {
     completed: PropTypes.bool.isRequired,
     text: PropTypes.number.isRequired,
     date: PropTypes.any.isRequired,
-    deleteTodo: PropTypes.func.isRequired
-}
+    deleteValue: PropTypes.func.isRequired
+};
 
-export default Todo
+export default Values

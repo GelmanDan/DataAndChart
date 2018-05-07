@@ -1,28 +1,19 @@
-const todo = (state, action) => {
+const value = (state, action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case 'ADD_VALUE':
             return {
                 id: action.id,
                 text: action.text,
                 date: action.date,
                 completed: false
             };
-        case 'DELETE_TODO':
+        case 'DELETE_VALUE':
             const newState = Object.assign([], state);
-            console.log(state, action);
             const indexToDelete = state.findIndex(number => {
                 return number.id == action.id
             });
             newState.splice(indexToDelete, 1);
             return newState;
-        case 'TOGGLE_TODO':
-            if (state.id !== action.id) {
-                return state
-            }
-
-            return Object.assign({}, state, {
-                completed: !state.completed
-            });
 
         default:
             return state
@@ -31,17 +22,13 @@ const todo = (state, action) => {
 
 const todos = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case 'ADD_VALUE':
             return [
                 ...state,
-                todo(undefined, action)
+                value(undefined, action)
         ];
-        case 'DELETE_TODO':
-            return  todo(state,action);
-        case 'TOGGLE_TODO':
-            return state.map(t =>
-                todo(t, action)
-        );
+        case 'DELETE_VALUE':
+            return  value(state,action);
         default:
             return state
     }

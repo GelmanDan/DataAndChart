@@ -27,7 +27,6 @@ class Charts extends Component{
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         var x = d3.scaleTime().rangeRound([0, width]);
         var y = d3.scaleLinear().rangeRound([height, 0]);
-        console.log(width, height);
 
         var div = d3.select("body").append("div")
             .attr("class", "tooltip")
@@ -67,8 +66,7 @@ class Charts extends Component{
 
         return (
             <div className="charts">
-                <svg id="svg"  width="900" height="500"
-                     ></svg>
+                <svg id="svg"  width="900" height="500"></svg>
             </div>
         )
     }

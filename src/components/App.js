@@ -1,8 +1,7 @@
 import React from 'react'
-import AddTodo from '../containers/AddTodo'
 import LeftColumn from './LeftColumn'
 import RightColumn from './RightColumn'
-import VisibleTodoList from '../containers/VisibleTodoList'
+import VisibleValuesList from '../containers/VisibleValuesList'
 
 
 class App extends React.Component {
@@ -11,28 +10,11 @@ class App extends React.Component {
         return (
             <div className="container">
                 <LeftColumn />
-                <VisibleTodoList />
+                <VisibleValuesList />
                 <RightColumn />
             </div>
         );
-        /*
-         <div>
-         <div onClick={this.onClick}>Click me1</div>
-         <Toggle hidden={this.state.hidden}>I am toggle</Toggle>
-         <div>Something else.</div>
-         </div>;*/
     }
 }
 
 export default App;
-/*
- const App = () => (
- <div className="container">
- <div className="leftColumn"></div>
- <VisibleTodoList />
- <div className="rightColumn"></div>
- </div>
- )
-
- export default App
- */

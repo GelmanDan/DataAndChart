@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
-import { toggleTodo, deleteTodo } from '../actions'
-import TodoList from '../components/TodoList'
-import Charts from '../components/Charts'
+import { toggleTodo, deleteValue } from '../actions'
+import ValuesList from '../components/ValuesList'
 
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
@@ -22,11 +21,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-            onTodoClick: (id) => {
-                dispatch(toggleTodo(id))
-            },
-            deleteTodo: (id) => {
-                dispatch(deleteTodo(id))
+            deleteValue: (id) => {
+                dispatch(deleteValue(id))
             }
 }
 };
@@ -34,6 +30,6 @@ const mapDispatchToProps = (dispatch) => {
 const VisibleTodoList = connect(
     mapStateToProps,
     mapDispatchToProps
-)(TodoList);
+)(ValuesList);
 
 export default VisibleTodoList
