@@ -6,26 +6,32 @@ class Charts extends Component{
         super(props);
     }
     componentDidMount(){
+        var svg = d3.select(".charts")
+            .select("svg")
+            .attr('viewBox', '0 0 960 500')
+            .attr('preserveAspectRatio', 'xMidYMid')
+            .style('width', '100%')
 
     }
     componentDidUpdate() {
 
-        var data = this.props.data;
-        var svg = d3.select("svg"),
+        let data = Object.assign([], this.props.data);
+        var svg = d3.select(".charts")
+                .select("svg")
+                .attr('viewBox', '0 0 960 500')
+                .attr('preserveAspectRatio', 'xMidYMid')
+                .style('width', '100%'),
             margin = {top: 20, right: 20, bottom: 30, left: 50},
             width = +svg.attr("width") - margin.left - margin.right,
             height = +svg.attr("height") - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-        var parseTime = d3.timeParse("%H:%M:%S");
         var x = d3.scaleTime().rangeRound([0, width]);
         var y = d3.scaleLinear().rangeRound([height, 0]);
+        console.log(width, height);
 
-
-        data[data.length-1].date = parseTime(data[data.length-1].date);
-        data[data.length-1].text = +data[data.length-1].text;
-
-
+        var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
         var line = d3.line()
             .x(function(d) { return x(d.date); })
@@ -38,31 +44,31 @@ class Charts extends Component{
             .attr("d", line(data))
             .attr("stroke", "blue")
             .attr("stroke-width", 2)
-            .attr("fill", "none");
+            .attr("fill", "none")
+            .attr("class", "line");
 
-        svg.append("g")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x))
-            .select(".domain")
-            .remove();
+        svg.selectAll("text").remove();
+
+
+        svg.selectAll("text")
+            .data(data)
+            .enter().append("text")
+            .attr("x", function(d) { return x(d.date); })
+            .attr("y", function(d) { return (y(d.text)+14); })
+            .text(function(d) { return d.text; });
 
         svg.append("g")
             .call(d3.axisLeft(y))
-            .append("text")
-            .attr("fill", "#000")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", "0.71em")
-            .attr("text-anchor", "end")
-            .text("Price ($)");
+
     }
+
     render() {
 
 
         return (
-            <div id="chart">
-                <p>Chart</p>
-                <svg id="svg" width="960" height="500"></svg>
+            <div className="charts">
+                <svg id="svg"  width="900" height="500"
+                     ></svg>
             </div>
         )
     }

@@ -1,79 +1,172 @@
+body{
+    margin:0px;
+    height:100%;
+}
+html{
+    height:100%;
+}
+#root{
+    height:100%;
+}
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.container {
+    height:100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.leftColumn{
+    grid-column: 1/1;
+    background-color: #ffffff;
+}
+.rightColumn{
+    grid-column: 3/3;
+    background-color: #ffffff;
+}
+.rightColumn .rightColumn-arrow-right {
+
+}
+.rightColumn .rightColumn-arrow-right svg{
+    width: 200px;
+    float: right;
+    background-color: #9da0a4;
+    text-align: center;
+}
+.rightColumn .rightColumn-arrow-left svg{
+   float:right;
+}
+.leftColumn .leftColumn-arrow-left{
+
+}
+.leftColumn .leftColumn-arrow-left svg{
+    width: 200px;
+    background-color: #9da0a4;
+    text-align: center;
+}
+.chartAndData {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.data {
+    border: 1px solid grey;
+    padding: 15px 15px 15px 15px;
+    margin: 15px 15px 15px 0px;
+    grid-column: 2/2;
+}
+
+.data h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.charts {
+    border: 1px solid grey;
+    padding: 15px 15px 15px 15px;
+    margin: 15px 15px 15px 15px;
+    grid-column: 1/1;
+}
+
+/*ToDo */
+
+.todo {
+    display: grid;
+
+    grid-template-columns: auto auto auto;
+    border: 1px solid grey;
+    margin: 5px 0px 5px 0px;
+    padding: 2px 2px 2px 2px;
+}
+
+.todo-time {
+    grid-column: 1/1;
+    vertical-align: middle;
+    padding-left: 5px;
+    padding-top: 3%;
+}
+.todo-text{
+    grid-column: 2/2;
+    vertical-align: middle;
+    padding-top: 3%;
+}
+.todo-btn {
+    grid-column: 6/6;
+}
+
+/* AddNumber */
+.addToDo input{
+    width:100%;
+}
+
+/* Columns */
+.toggle-left {
+    width: 200px;
+    height: calc(100% - 90px);
+    background-color: #9da0a4;
+}
+.toggle-right {
+    width: 200px;
+    height: calc(100% - 90px);
+    float:right;
+    background-color: #9da0a4;
+}
+
+.toggle-enter {
+    animation-name: fade-in;
+    animation-duration: 300ms;
+}
+.toggle-leave {
+    animation-name: fade-out;
+    animation-duration: 300ms;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0.0;
+        width: 0%;
+        display: none;
+    }
+    to {
+        opacity: 1.0;
+        width: 200px;
+        display: block;
+    }
 }
 
 
-.green path {
-  stroke: lightgreen;
-  stroke-dasharray: 5 5;
-}
-
-.lightgreyaxis path {
-  stroke: lightgrey;
-}
-
-.tooltip-content {
-  border: 1px solid black;
-  background: white;
-  padding: 20px;
-  position: relative;
-  transform: translate(calc(-50% + 7px), calc(-100% - 20px));
-}
-
-.tooltip-content:before {
-  background: inherit;
-  content: "";
-  padding: 0px;
-  transform: rotate(45deg);
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  z-index: 99;
-  border-right: inherit;
-  border-bottom: inherit;
-  bottom: -8px;
-  left: calc(50% - 15px);
-}
-
-circle.frame-hover {
-  fill: none;
-  stroke: black;
-  r: 10;
-}
-
-.axis text {
-  fill: lightgrey;
-}
-
-.axis path {
-  stroke: lightgrey;
-}
-
-.axis .baseline {
-  stroke: lightgrey;
+@keyframes fade-out {
+    from {
+        opacity: 1.0;
+        width: 200px;
+        display: block;
+        background-color: #9da0a4;
+    }
+    to {
+        opacity: 0.0;
+        width: 0%;
+        display: none;
+        background-color: #ffffff;
+    }
 }

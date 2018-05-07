@@ -2,22 +2,26 @@ import PropTypes from 'prop-types';
 import React  from 'react';
 import Todo from './Todo'
 import Charts from './Charts'
-
+import AddTodo from '../containers/AddTodo'
 
 
 const TodoList = ({ todos, onTodoClick, deleteTodo }) => (
-    <div>
-        <ul>
-            {todos.map(todo =>
-                <Todo
-                    deleteTodo={deleteTodo}
-                    key={todo.id}
-                    {...todo}
-                    onClick={() => onTodoClick(todo.id)}
-                />
-            )}
-        </ul>
+    <div className="chartAndData">
         <Charts data={todos}/>
+        <div className="data">
+            <AddTodo/>
+            <p>List of values</p>
+            <div>
+                {todos.map(todo =>
+                    <Todo
+                        deleteTodo={deleteTodo}
+                        key={todo.id}
+                        {...todo}
+                        onClick={() => onTodoClick(todo.id)}
+                    />
+                )}
+            </div>
+        </div>
     </div>
 );
 

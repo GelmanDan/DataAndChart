@@ -31,14 +31,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 };
 
-const deleteToProps = (dispatch) => {
-    return {
-        deleteTodo: (id) => {
-            dispatch(deleteTodo(id))
-        }
-    }
-};
-
 const VisibleTodoList = connect(
     mapStateToProps,
     mapDispatchToProps
